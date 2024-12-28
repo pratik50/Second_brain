@@ -37,7 +37,7 @@ export function Dashboard() {
         <Sidebar />
       </div>
 
-      <div className=" pl-4 ml-72 min-h-screen border-l-1 bg-gray-100">
+      <div className="min-h-screen border-l-1 bg-gray-100 md:ml-64">
         <CreateContentModal
           open={modalOpen}
           onClose={() => {
@@ -62,14 +62,17 @@ export function Dashboard() {
           />
         </div>
 
-        <div className="flex flex-wrap gap-4">
-          {content.map(({_id, title, link, type}) => (
-              <Card key={_id}
-                title={title}
-                link={link}
-                type={type} />
-          ))}
+        <div className="flex flex-wrap justify-evenly gap-5 p-4">
+            {content.map(({ _id, title, link, type }) => (
+              <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+                <Card key={_id}
+                  title={title}
+                  link={link}
+                  type={type} />
+              </div>
+            ))}
         </div>
+
       </div>
     </div>
   );
